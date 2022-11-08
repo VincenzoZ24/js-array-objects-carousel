@@ -121,7 +121,8 @@ eleBtnLeft.addEventListener('click', function () {
 });
 let repeater;
 let startButton = document.querySelector(".start");
-let stopButton = document.querySelector(".stop")
+let stopButton = document.querySelector(".stop");
+
 startButton.addEventListener("click", function () {
   repeater = setInterval(() => {
 	listEleImg[activeIndex].classList.remove('active');
@@ -148,7 +149,32 @@ startButton.addEventListener("click", function () {
 stopButton.addEventListener("click", () => {
   clearInterval(repeater);
   stopButton.classList.add("d_none");
-  startButton.classList.remove("d_none")
+  startButton.classList.remove("d_none");
 });
+let reverse = document.querySelector(".reverse");
 
 
+reverse.addEventListener("click", function () {
+	repeater = setInterval(() => {
+		listEleImg[activeIndex].classList.remove('active');
+		listThumbs[activeIndex].classList.remove('active');
+		listTile[activeIndex].classList.remove("visiona");
+		listText[activeIndex].classList.remove("visione_text")
+	
+		
+	
+		if (activeIndex === 0) {
+			activeIndex = listEleImg.length;
+		}
+		activeIndex--;
+	
+	
+		listText[activeIndex].classList.add("visione_text")
+		listEleImg[activeIndex].classList.add('active');
+		listThumbs[activeIndex].classList.add('active');
+		listTile[activeIndex].classList.add("visiona")
+	}, 1500);
+	startButton.classList.add("d_none");
+	stopButton.classList.remove("d_none")
+	
+  });
