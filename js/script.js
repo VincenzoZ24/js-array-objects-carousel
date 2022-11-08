@@ -32,7 +32,7 @@ const eleBtnLeft = document.querySelector('.btn-left');
 const eleBtnRight = document.querySelector('.btn-right');
 
 
-// creare i tag immagine nell'html
+
 for (let i = 0; i < arrImages.length; i++) {
 	
    
