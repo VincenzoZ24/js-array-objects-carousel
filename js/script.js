@@ -98,27 +98,20 @@ eleBtnRight.addEventListener('click', function () {
 });
 
 eleBtnLeft.addEventListener('click', function () {
-	// togliere la classe active dall'elemento attivo corrente
+
 	listEleImg[activeIndex].classList.remove('active');
 	listThumbs[activeIndex].classList.remove('active');
 	listTile[activeIndex].classList.remove("visiona");
 	listText[activeIndex].classList.remove("visione_text")
 
-	// decrementare l'active index con reset per slider infinito
-	/*
-	if (activeIndex === 0) {
-		activeIndex = listEleImg.length - 1;
-	} else {
-		activeIndex--;
-	}
-	*/
+	
 
 	if (activeIndex === 0) {
 		activeIndex = listEleImg.length;
 	}
 	activeIndex--;
 
-	// aggiungere la classe active all'elemento successivo
+
 	listText[activeIndex].classList.add("visione_text")
 	listEleImg[activeIndex].classList.add('active');
 	listThumbs[activeIndex].classList.add('active');
