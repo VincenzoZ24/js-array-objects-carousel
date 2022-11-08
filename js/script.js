@@ -119,3 +119,36 @@ eleBtnLeft.addEventListener('click', function () {
 	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 	document.body.style.backgroundSize = 'cover';
 });
+let repeater;
+let startButton = document.querySelector(".start");
+let stopButton = document.querySelector(".stop")
+startButton.addEventListener("click", function () {
+  repeater = setInterval(() => {
+	listEleImg[activeIndex].classList.remove('active');
+	listThumbs[activeIndex].classList.remove('active');
+    listTile[activeIndex].classList.remove("visiona");
+	listText[activeIndex].classList.remove("visione_text")
+
+
+	activeIndex++;
+	if (activeIndex === listEleImg.length) {
+		activeIndex = 0;
+	}
+
+	listText[activeIndex].classList.add("visione_text")
+    listTile[activeIndex].classList.add("visiona")
+	listEleImg[activeIndex].classList.add('active');
+	listThumbs[activeIndex].classList.add('active');
+  }, 1500);
+  stopButton.classList.remove("d_none")
+  startButton.classList.add("d_none")
+  
+});
+
+stopButton.addEventListener("click", () => {
+  clearInterval(repeater);
+  stopButton.classList.add("d_none");
+  startButton.classList.remove("d_none")
+});
+
+

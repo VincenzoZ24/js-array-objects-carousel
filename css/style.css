@@ -118,3 +118,29 @@ body {
 	display: block;
     z-index: 2;
 }
+.container_button{
+	display: flex;
+	justify-content: center;
+}
+.start{
+	
+	margin-top: 4rem;
+	border: none;
+	padding: 1rem;
+	border-radius: .5rem;
+	background-color: rgb(31, 147, 242);
+	color: white;
+	cursor: pointer;
+}
+.stop{
+	margin-top: 4rem;
+	border: none;
+	padding: 1rem;
+	border-radius: .5rem;
+	background-color: rgb(31, 147, 242);
+	color: white;
+	cursor: pointer;
+}
+.d_none{
+	display: none;
+}
