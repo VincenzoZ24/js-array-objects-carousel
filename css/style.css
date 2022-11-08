@@ -6,6 +6,7 @@
 
 body {
 	height: 100vh;
+	background-color: rgb(139, 134, 134);
 }
 
 .container-blur {
@@ -102,5 +103,18 @@ body {
 }
 .visiona{
     display: block;
+    z-index: 2;
+	margin-bottom: 3rem;
+}
+.text_img{
+	color: white;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+}
+.visione_text{
+	display: block;
     z-index: 2;
 }

@@ -40,14 +40,19 @@ for (let i = 0; i < arrImages.length; i++) {
 	eleImg.src = `${arrImages[i].image}`;
 	eleImg.classList.add('slider-img');
     eleSliderViewer.appendChild(eleImg)
-    const title = document.createElement("h3");
+    const title = document.createElement("h2");
     title.innerHTML = `${arrImages[i].title}`
     eleSliderViewer.append(title);
     title.classList.add("titolo")
+	const textImg = document.createElement("p");
+	textImg.innerHTML = `${arrImages[i].text}`;
+	eleSliderViewer.append(textImg);
+	textImg.classList.add("text_img");
 
 	if (i === 0) {
 		eleImg.classList.add('active');
         title.classList.add("visiona")
+		textImg.classList.add("visione_text");
 	}
 	eleSliderViewer.append(eleImg);
 
@@ -64,7 +69,7 @@ for (let i = 0; i < arrImages.length; i++) {
 const listEleImg = document.querySelectorAll('.slider-img'); 
 const listThumbs = document.querySelectorAll('.thumb-img');
 const listTile = document.querySelectorAll(".titolo");
-
+const listText = document.querySelectorAll(".text_img");
 let activeIndex = 0;
 document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 document.body.style.backgroundSize = 'cover';
@@ -74,7 +79,8 @@ eleBtnRight.addEventListener('click', function () {
 	
 	listEleImg[activeIndex].classList.remove('active');
 	listThumbs[activeIndex].classList.remove('active');
-    listTile[activeIndex].classList.remove("visiona")
+    listTile[activeIndex].classList.remove("visiona");
+	listText[activeIndex].classList.remove("visione_text")
 
 
 	activeIndex++;
@@ -82,10 +88,11 @@ eleBtnRight.addEventListener('click', function () {
 		activeIndex = 0;
 	}
 
-	
+	listText[activeIndex].classList.add("visione_text")
     listTile[activeIndex].classList.add("visiona")
 	listEleImg[activeIndex].classList.add('active');
 	listThumbs[activeIndex].classList.add('active');
+	
 	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 	document.body.style.backgroundSize = 'cover';
 });
@@ -94,6 +101,8 @@ eleBtnLeft.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
 	listEleImg[activeIndex].classList.remove('active');
 	listThumbs[activeIndex].classList.remove('active');
+	listTile[activeIndex].classList.remove("visiona");
+	listText[activeIndex].classList.remove("visione_text")
 
 	// decrementare l'active index con reset per slider infinito
 	/*
@@ -110,8 +119,10 @@ eleBtnLeft.addEventListener('click', function () {
 	activeIndex--;
 
 	// aggiungere la classe active all'elemento successivo
+	listText[activeIndex].classList.add("visione_text")
 	listEleImg[activeIndex].classList.add('active');
 	listThumbs[activeIndex].classList.add('active');
+	listTile[activeIndex].classList.add("visiona")
 	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 	document.body.style.backgroundSize = 'cover';
 });
